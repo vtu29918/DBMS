@@ -1,0 +1,14 @@
+Entities and Attributes
+1.	USER ( User_ID ,Name,Email,PassworD,Date_of_Birth,Country,Subscription_Type )
+2.	song(Song_ID,title,duration,release_date,language,genre_id,)
+3.	Artist(Artist_ID, Artist_Name, Country, Debut_Year)
+4.	Album(Album_ID, Album_Name, Release_Year, Artist_ID)
+5.	Genre(Genre_ID, Genre_Name, Description)
+6.	Playlist(Playlist_ID, Playlist_Name, Creation_Date, User_ID)
+7.	Recommendation(Recommendation_ID, User_ID, Song_ID)
+Relationships
+•	User ↔Playlist → (one-to-Many)
+•	Playlist ↔ Song (Many-to-Many)
+•	Artist ↔ Album→ (One-to-Many)
+•	Album – Song → (One-to-Many)
+•	User – Song → (Many-to-Many)
