@@ -1,0 +1,35 @@
+CREATE TABLE Student (
+  student_id INT PRIMARY KEY,
+  name VARCHAR(50),
+  age INT,
+  department VARCHAR(30)
+);
+
+CREATE TABLE Course (
+  course_id INT PRIMARY KEY,
+  course_name VARCHAR(50),
+  credits INT
+);
+
+CREATE TABLE Enrollment (
+  enroll_id INT PRIMARY KEY,
+  student_id INT,
+  course_id INT,
+  grade CHAR(2),
+  FOREIGN KEY (student_id) REFERENCES Student(student_id),
+  FOREIGN KEY (course_id) REFERENCES Course(course_id)
+);
+JOIN
+SELECT s.name, c.course_name, e.grade
+FROM Student s
+JOIN Enrollment e ON s.student_id = e.student_id
+JOIN Course c ON e.course_id = c.course_id;
+RECURSIVE QUIREY
+WITH RECURSIVE prereq_chain AS (
+  SELECT course_id, course_name FROM Course WHERE course_id = 101
+  UNION ALL
+  SELECT c.course_id, c.course_name
+  FROM Course c
+  JOIN prereq_chain p ON c.course_id = p.course_id + 1
+)
+SELECT * FROM prereq_chain;
