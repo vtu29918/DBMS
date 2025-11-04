@@ -1,0 +1,11 @@
+Display student names in uppercase
+SELECT UPPER(name) AS STUDENT_NAME FROM Student;
+
+ Find age + 5 years
+SELECT name, age + 5 AS Age_in_5_Years FROM Student;
+
+Concatenate name and department
+SELECT CONCAT(name, ' - ', department) AS Student_Info FROM Student;
+
+Display current date
+SELECT SYSDATE FROM dual;
